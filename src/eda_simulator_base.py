@@ -3,8 +3,8 @@ class Wire:
         self.name = name
         self.width = width
         self.direction = direction  # 'input', 'output', 'inout', or None
-        self.default_value = default_value
         self.value = default_value
+        self.default_value = default_value
         self.attributes = attributes or {}
 
     def __eq__(self, other):
@@ -28,15 +28,15 @@ class Gate:
 
 class AndGate(Gate):
     def simulate(self):
-        # 支持任意输入数量（N输入与门）
+        # 支持多输入与门
         value = 1
         for wire in self.inputs:
             value &= wire.value
         self.output.value = value
 
     def to_verilog(self):
-        input_expr = " & ".join(wire.name for wire in self.inputs)
-        return f"assign {self.output.name} = {input_expr};"
+        expr = " & ".join(wire.name for wire in self.inputs)
+        return f"assign {self.output.name} = {expr};"
 
 class OrGate(Gate):
     def simulate(self):
@@ -46,13 +46,14 @@ class OrGate(Gate):
         self.output.value = value
 
     def to_verilog(self):
-        input_expr = " | ".join(wire.name for wire in self.inputs)
-        return f"assign {self.output.name} = {input_expr};"
+        expr = " | ".join(wire.name for wire in self.inputs)
+        return f"assign {self.output.name} = {expr};"
 
 class NotGate(Gate):
     def simulate(self):
-        # 支持多比特，但这里只处理最低位
-        self.output.value = ~self.inputs[0].value & ((1 << self.output.width) - 1)
+        # 按位宽处理
+        mask = (1 << self.output.width) - 1
+        self.output.value = (~self.inputs[0].value) & mask
 
     def to_verilog(self):
         return f"assign {self.output.name} = ~{self.inputs[0].name};"
@@ -62,7 +63,7 @@ class Chip:
         self.name = name
         self.gates = []
         self.wires = []
-        self.subchips = []  # 支持层次化
+        self.subchips = []
         self.attributes = attributes or {}
 
     def add_gate(self, gate):
@@ -75,7 +76,7 @@ class Chip:
         self.subchips.append(chip)
 
     def simulate(self, input_values):
-        # 赋值输入（支持Wire对象或name作为key）
+        # 支持 Wire 或 name 作为 key
         for wire_key, val in input_values.items():
             if isinstance(wire_key, Wire):
                 wire_key.value = val
@@ -84,13 +85,11 @@ class Chip:
                     if wire.name == wire_key:
                         wire.value = val
                         break
-        # 仿真本层gates
         for gate in self.gates:
             gate.simulate()
-        # 仿真子模块
         for chip in self.subchips:
             chip.simulate({})
-        # 返回所有线的当前值
+        # 汇总所有本地和子模块线的值
         result = {wire.name: wire.value for wire in self.wires}
         for chip in self.subchips:
             result.update({f"{chip.name}.{k}": v for k, v in chip.simulate({}).items()})
@@ -99,11 +98,8 @@ class Chip:
     def to_verilog(self):
         verilog = f"module {self.name}(...);\n"
         for wire in self.wires:
-            wire_decl = f"  wire"
-            if wire.width > 1:
-                wire_decl += f" [{wire.width-1}:0]"
-            wire_decl += f" {wire.name};\n"
-            verilog += wire_decl
+            width_str = f"[{wire.width-1}:0] " if wire.width > 1 else ""
+            verilog += f"  wire {width_str}{wire.name};\n"
         for gate in self.gates:
             verilog += f"  {gate.to_verilog()}\n"
         for chip in self.subchips:
