@@ -72,7 +72,7 @@
 ## 示例
 
 ```python
-from eda_simulator_base import Wire, AndGate, NotGate, Chip
+from src.eda_simulator_base import Wire, AndGate, NotGate, Chip
 
 a, b, and_ab, out = Wire("a"), Wire("b"), Wire("and_ab"), Wire("out")
 and1 = AndGate("and1", [a, b], and_ab)
@@ -207,7 +207,7 @@ coming soon
 ## Example
 
 ```python
-from eda_simulator_base import Wire, AndGate, NotGate, Chip
+from src.eda_simulator_base import Wire, AndGate, NotGate, Chip
 
 a, b, and_ab, out = Wire("a"), Wire("b"), Wire("and_ab"), Wire("out")
 and1 = AndGate("and1", [a, b], and_ab)
