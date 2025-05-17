@@ -3,6 +3,14 @@ class Wire:
         self.name = name
         self.value = 0  # 仿真用，可扩展为多位
 
+    def __eq__(self, other):
+        if isinstance(other, Wire):
+            return self.name == other.name
+        return False
+
+    def __hash__(self):
+        return hash(self.name)
+
 class Gate:
     def __init__(self, name, inputs, output):
         self.name = name
