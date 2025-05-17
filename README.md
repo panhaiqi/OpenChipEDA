@@ -46,14 +46,7 @@
 ## 目录结构
 
 ```
-OpenChipEDA/
-├── eda_simulator_base.py    # 核心建模与仿真模块
-├── chip_simulator.py        # 示例与入口
-├── tests/                   # 单元与集成测试
-├── examples/                # 示例电路与脚本
-├── docs/                    # 文档
-├── LICENSE
-└── README.md
+还不确定
 ```
 
 ---
@@ -72,7 +65,7 @@ OpenChipEDA/
     ```
 
 3. **自定义你的电路:**
-    - 编辑 `chip_simulator.py` 或新建脚本，导入 `eda_simulator_base.py`。
+    - 编辑 `chip_simulator.py` 或新建脚本，导入 `src/eda_simulator_base.py`。
 
 ---
 
@@ -188,14 +181,7 @@ It aims to provide an easy-to-use, extensible, and educational environment for b
 ## Directory Structure
 
 ```
-OpenChipEDA/
-├── eda_simulator_base.py    # Core circuit modeling and simulation classes
-├── chip_simulator.py        # Example usage and entry point
-├── tests/                   # Unit and integration tests (to be added)
-├── examples/                # Example circuits and scripts (to be added)
-├── docs/                    # Documentation (to be added)
-├── LICENSE
-└── README.md
+coming soon
 ```
 
 ---
@@ -214,7 +200,7 @@ OpenChipEDA/
     ```
 
 3. **Define your own circuits:**
-    - Edit `chip_simulator.py` or create a new Python script, importing from `eda_simulator_base.py`.
+    - Edit `chip_simulator.py` or create a new Python script, importing from `src/eda_simulator_base.py`.
 
 ---
 
