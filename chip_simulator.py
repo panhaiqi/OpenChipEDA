@@ -1,4 +1,4 @@
-from eda_simulator_base import Wire, AndGate, NotGate, Chip
+from src.eda_simulator_base import Wire, AndGate, NotGate, Chip
 
 # 1. 定义信号线
 a = Wire("a")
