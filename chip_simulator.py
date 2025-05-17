@@ -1,17 +1,17 @@
 from src.eda_simulator_base import Wire, AndGate, NotGate, Chip
 
-# 1. 定义信号线
-a = Wire("a")
-b = Wire("b")
-and_ab = Wire("and_ab")
-out = Wire("out")
+# 1. 定义信号线，支持多比特、方向和属性扩展
+a = Wire("a", width=1, direction="input")
+b = Wire("b", width=1, direction="input")
+and_ab = Wire("and_ab", width=1)
+out = Wire("out", width=1, direction="output")
 
 # 2. 定义门
 and1 = AndGate("and1", [a, b], and_ab)
 not1 = NotGate("not1", [and_ab], out)
 
 # 3. 组装芯片
-chip = Chip("SimpleChip")
+chip = Chip("SimpleChip", attributes={"author": "OpenChipEDA"})
 chip.add_wire(a)
 chip.add_wire(b)
 chip.add_wire(and_ab)

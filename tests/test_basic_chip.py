@@ -4,14 +4,14 @@ from src.eda_simulator_base import Wire, AndGate, NotGate, Chip
 class TestBasicChip(unittest.TestCase):
     def setUp(self):
         # 构建一个简单的电路: out = NOT(AND(a, b))
-        self.a = Wire("a")
-        self.b = Wire("b")
-        self.and_ab = Wire("and_ab")
-        self.out = Wire("out")
+        self.a = Wire("a", width=1, direction="input")
+        self.b = Wire("b", width=1, direction="input")
+        self.and_ab = Wire("and_ab", width=1)
+        self.out = Wire("out", width=1, direction="output")
         self.and1 = AndGate("and1", [self.a, self.b], self.and_ab)
         self.not1 = NotGate("not1", [self.and_ab], self.out)
 
-        self.chip = Chip("SimpleChip")
+        self.chip = Chip("SimpleChip", attributes={"testcase": "basic"})
         self.chip.add_wire(self.a)
         self.chip.add_wire(self.b)
         self.chip.add_wire(self.and_ab)
