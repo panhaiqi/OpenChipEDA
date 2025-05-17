@@ -1,7 +1,5 @@
 import unittest
-import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from eda_simulator_base import Wire, AndGate, NotGate, Chip
+from src.eda_simulator_base import Wire, AndGate, NotGate, Chip
 
 class TestBasicChip(unittest.TestCase):
     def setUp(self):
