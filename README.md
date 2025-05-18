@@ -145,7 +145,7 @@ print("Generated Verilog:\n", chip.to_verilog())
 
 ## 鸣谢
 
-- 灵感来源于PyRTL、Pyverilog、BinPy、DigSim等以及开源EDA/FPGA社区。
+- 灵感来源于PyRTL、Pyverilog、BinPy、DigSim等, 开源EDA/FPGA社区和Copilot
 
 ---
 
@@ -288,6 +288,6 @@ Please open an issue or submit a pull request.
 
 ## Acknowledgements
 
-- Inspired by PyRTL, Pyverilog, BinPy, DigSim, etc, and the open-source EDA/FPGA communities.
+- Inspired by PyRTL, Pyverilog, BinPy, DigSim, etc, the open-source EDA/FPGA communities and Copilot.
 
 ---
