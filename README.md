@@ -4,6 +4,12 @@
 
 ---
 
+## 协议变更公告
+
+自北京时间2025-05-18 16:59起，项目协议由 MIT 变更为 GPL 2.0。
+
+---
+
 ## <span id="chinese-version">中文版</span>
 
 **OpenChipEDA** 是一个开源的、基于 Python 的芯片级数字电路仿真与EDA（电子设计自动化）统一平台。  
@@ -95,6 +101,8 @@ print("Generated Verilog:\n", chip.to_verilog())
 
 ## 许可证
 
+自 北京时间2025-05-18 16:59 起，项目协议由 MIT 变更为 GPL 2.0。
+
 详见 LICENSE 文件。
 
 ---
@@ -140,6 +148,14 @@ print("Generated Verilog:\n", chip.to_verilog())
 ---
 
 ## <span id="english-version">English Version</span>
+
+---
+
+## License Change Notice
+
+As of 2025-05-18 16:59 (UTC+8), the project license has changed from MIT to GPL 2.0.
+
+---
 
 **OpenChipEDA** is an open-source, Python-based unified platform for chip-level digital circuit simulation and EDA (Electronic Design Automation).  
 It aims to provide an easy-to-use, extensible, and educational environment for building, simulating, and exporting digital circuits, with future support for advanced EDA flows.
