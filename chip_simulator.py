@@ -29,3 +29,8 @@ print("仿真结果：", result)
 
 # 5. （可选）导出Verilog
 #print("Verilog代码：\n", chip.to_verilog())
+
+# 6. 输出真值表
+print("\n真值表输出：")
+truth_table = chip.generate_truth_table()
+print(truth_table)

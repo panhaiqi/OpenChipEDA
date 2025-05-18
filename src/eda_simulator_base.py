@@ -168,3 +168,51 @@ class Chip:
             
         verilog += "endmodule\n"
         return verilog
+
+    def generate_truth_table(self):
+        """生成电路的真值表
+        
+        Returns:
+            包含真值表内容的字符串
+        """
+        # 获取所有输入和输出端口
+        input_ports = [wire for wire in self.ports if wire.direction == "input"]
+        output_ports = [wire for wire in self.ports if wire.direction == "output"]
+        
+        if not input_ports or not output_ports:
+            return "没有足够的输入/输出端口来生成真值表"
+        
+        # 生成所有可能的输入组合
+        input_combinations = []
+        num_combinations = 2 ** len(input_ports)
+        
+        for i in range(num_combinations):
+            combination = {}
+            for j, port in enumerate(input_ports):
+                # 从二进制位提取该输入的值
+                bit_value = (i >> j) & 1
+                combination[port] = bit_value
+            input_combinations.append(combination)
+        
+        # 生成表头
+        table = "真值表:\n"
+        header = " | ".join([f"{port.name}" for port in input_ports]) + " | "
+        header += " | ".join([f"{port.name}" for port in output_ports])
+        table += header + "\n"
+        table += "-" * len(header) + "\n"
+        
+        # 对每种输入组合进行仿真并记录结果
+        for inputs in input_combinations:
+            # 重置所有信号
+            for wire in self.ports + self.internal_wires:
+                wire.value = 0
+                
+            # 运行仿真
+            result = self.simulate(inputs)
+            
+            # 添加行
+            row = " | ".join([f"{inputs[port]}" for port in input_ports]) + " | "
+            row += " | ".join([f"{result[port.name]}" for port in output_ports])
+            table += row + "\n"
+        
+        return table
