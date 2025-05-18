@@ -7,15 +7,18 @@ and_ab = Wire("and_ab", width=1)
 out = Wire("out", width=1, direction="output")
 
 # 2. 定义门
-and1 = AndGate("and1", [a, b], and_ab)
-not1 = NotGate("not1", [and_ab], out)
+and1 = AndGate("and1", [a, b], [and_ab])
+not1 = NotGate("not1", [and_ab], [out])
 
 # 3. 组装芯片
 chip = Chip("SimpleChip", attributes={"author": "OpenChipEDA"})
-chip.add_wire(a)
-chip.add_wire(b)
-chip.add_wire(and_ab)
-chip.add_wire(out)
+# 这些是端口，使用add_port
+chip.add_port(a)  # 输入端口
+chip.add_port(b)  # 输入端口
+# 这是内部信号，使用add_internal_wire
+chip.add_internal_wire(and_ab)
+# 这是端口，使用add_port
+chip.add_port(out)  # 输出端口
 chip.add_gate(and1)
 chip.add_gate(not1)
 
