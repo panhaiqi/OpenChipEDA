@@ -158,5 +158,5 @@ class TestBasicChip:
         """
         a, b, and_ab, out, and1, not1, chip = simple_circuit
         
-        expected = "Chip('SimpleChip', 3 ports, 2 gates, 1 internal wires)"
+        expected = "Chip('SimpleChip', 3 ports, 2 gates, 1 internal wire)"
         assert str(chip) == expected
