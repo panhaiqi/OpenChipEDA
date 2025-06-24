@@ -16,10 +16,6 @@ from src.eda_simulator_base import (
     XorGate,
 )
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
 
 def create_simple_circuit() -> Chip:
     """Create a simple AND-NOT circuit.
