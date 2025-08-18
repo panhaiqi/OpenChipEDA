@@ -1,6 +1,11 @@
+<!-- Language Switcher / 语言切换 -->
+<p align="left">
+  <a href="#en">English</a> | <a href="#cn">中文</a>
+</p>
+
 # OpenChipEDA: Empowering Digital Design for Everyone
 
-## Story for Amber AC Hackathon
+## Story for BUIDL_QUESTS 2025
 
 ### Background & Motivation
 
@@ -35,15 +40,15 @@ OpenChipEDA reimagines digital design as a software-first, accessible, and creat
 - **Planned Extensions:** In the future, we plan to add crypto hardware modules and interfaces, enabling rapid prototyping and security analysis for blockchain and cryptographic applications.
 - **Community Collaboration:** We welcome feedback and contributions from the AI, EDA, and crypto communities to shape the next generation of open hardware tools.
 
-### Why Amber AC Hackathon?
+### Why BUIDL_QUESTS 2025?
 
-Amber AC Hackathon is the perfect stage to showcase OpenChipEDA’s potential to democratize chip design. We hope to connect with like-minded innovators, receive valuable feedback, and inspire more people to join the open hardware movement.
+BUIDL_QUESTS 2025 is the perfect stage to showcase OpenChipEDA’s potential to democratize chip design. We hope to connect with like-minded innovators, receive valuable feedback, and inspire more people to join the open hardware movement.
 
 ---
 
 # OpenChipEDA：让数字电路设计人人可及
 
-## Amber AC Hackathon 项目故事
+## BUIDL_QUESTS 2025 项目故事
 
 ### 背景与动机
 
@@ -78,6 +83,6 @@ OpenChipEDA 以软件优先、易用和创造性的方式重新定义数字设�
 - **未来扩展**：后续将逐步增加加密硬件模块和接口，支持区块链与加密应用的快速原型与安全分析。
 - **社区协作**：欢迎 AI、EDA、加密等领域开发者共同参与，打造新一代开源硬件工具。
 
-### 为什么选择 Amber AC Hackathon？
+### 为什么选择 BUIDL_QUESTS 2025？
 
-Amber AC Hackathon 是展示 OpenChipEDA 降低芯片设计门槛、推动开源硬件创新的理想舞台。我们希望在这里结识志同道合的创新者，获得宝贵反馈，并吸引更多人加入开源硬件生
+BUIDL_QUESTS 2025 是展示 OpenChipEDA 降低芯片设计门槛、推动开源硬件创新的理想舞台。我们希望在这里结识志同道合的创新者，获得宝贵反馈，并吸引更多人加入开源硬件生态
